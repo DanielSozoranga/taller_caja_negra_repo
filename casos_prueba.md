@@ -1,46 +1,52 @@
-# Casos de Prueba — Sistema de Análisis de Presupuesto
+Casos de Prueba - Sistema de Analisis de Presupuesto
 
-## Mapa Conceptual
+Mapa Conceptual
 
-- **Error**: el programador se equivoca (no pensó en que `socios` podía ser 0).
-- **Defecto (bug)**: la línea de código queda mal (falta validar `socios`).
-- **Fallo**: el programa se cae o da un resultado incorrecto cuando se ejecuta esa línea.
+Error: el programador se equivoco, no penso en que socios podia ser 0.
+Defecto (bug): la linea de codigo queda mal, falta validar socios.
+Fallo: el programa se cae o da un resultado incorrecto cuando se ejecuta esa linea.
 
-**QA vs QC vs Testing:**
-- QA = prevenir (mejorar el proceso para que hayan menos bugs).
-- QC = revisar el producto ya hecho para encontrar bugs.
-- Testing = las pruebas concretas que se corren dentro de QC.
+QA vs QC vs Testing:
+QA es prevenir, mejorar el proceso para que hayan menos bugs.
+QC es revisar el producto ya hecho para encontrar bugs.
+Testing son las pruebas concretas que se corren dentro de QC.
 
-**7 principios de ISTQB (resumen corto):**
+7 principios de ISTQB, resumen corto:
 1. El testing encuentra bugs, no prueba que no existan.
 2. No se puede probar todo, es imposible.
 3. Mientras antes se prueba, menos cuesta arreglar.
-4. Los bugs se agrupan en las mismas partes del código.
+4. Los bugs se agrupan en las mismas partes del codigo.
 5. Si repites las mismas pruebas, dejan de encontrar bugs nuevos.
-6. Cada sistema se prueba distinto según su contexto.
+6. Cada sistema se prueba distinto segun su contexto.
 7. Que no haya bugs no significa que el programa sirva para lo que el usuario necesita.
 
----
+Tabla de Casos de Prueba
 
-## Tabla de Casos de Prueba
+CP-01: Presupuesto negativo
+Entrada: presupuesto=-1000, socios=2, meses=3
+Esperado: deberia rechazar el valor
+Real: lo acepta y calcula todo negativo
+Estado: Failed
 
-| ID | Descripción | Entrada | Esperado | Real | Estado |
-|----|---|---|---|---|---|
-| CP-01 | Presupuesto negativo | presupuesto=-1000, socios=2, meses=3 | Debería rechazar el valor | Lo acepta y calcula todo negativo | Failed |
-| CP-02 | Socios en 0 | presupuesto=1000, socios=0, meses=3 | Debería mostrar un aviso, sin cerrarse | ZeroDivisionError, el programa se cierra | Failed |
-| CP-03 | Meses = 2 | presupuesto=1000, socios=2, meses=2 | Interés esperado: $40.00 | Interés real: $80.00 | Failed |
+CP-02: Socios en 0
+Entrada: presupuesto=1000, socios=0, meses=3
+Esperado: deberia mostrar un aviso, sin cerrarse
+Real: ZeroDivisionError, el programa se cierra
+Estado: Failed
 
----
+CP-03: Meses = 2
+Entrada: presupuesto=1000, socios=2, meses=2
+Esperado: interes de $40.00
+Real: interes de $80.00
+Estado: Failed
 
-## Defectos encontrados
+Defectos encontrados
 
-**CP-01 — línea 4:** `presupuesto = float(input(...))` no valida que sea positivo. Por eso deja pasar números negativos sin avisar.
+CP-01, linea 4: presupuesto = float(input(...)) no valida que sea positivo. Deja pasar numeros negativos sin avisar.
 
-**CP-02 — línea 5 y 13:** `socios = int(input(...))` no valida que sea mayor a 0. Cuando `socios=0`, la línea 13 (`total / socios`) revienta con ZeroDivisionError.
+CP-02, linea 5 y 13: socios = int(input(...)) no valida que sea mayor a 0. Cuando socios es 0, la linea 13 (total / socios) revienta con ZeroDivisionError.
 
-**CP-03 — línea 10:** `intereses = presupuesto * tasa_interes_mensual * (meses ** 2)` usa `meses` al cuadrado en vez de usarlo normal. Por eso el interés sale más alto de lo que debería.
+CP-03, linea 10: intereses = presupuesto * tasa_interes_mensual * (meses ** 2) usa meses al cuadrado en vez de usarlo normal. Por eso el interes sale mas alto de lo que deberia.
 
----
-
-**Validado por:** Daniel Sozoranga — Tester Principal
-**Ejecutado y diagnosticado por:** Ricardo Alvarez — Desarrollador/Analista
+Validado por: Daniel Sozoranga, Tester Principal
+Ejecutado y diagnosticado por: Ricardo Alvarez, Desarrollador/Analista

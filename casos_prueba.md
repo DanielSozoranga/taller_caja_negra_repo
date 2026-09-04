@@ -84,6 +84,7 @@ comparando el resultado real contra el valor calculado manualmente.
 | D2 | 5 (dispara en 13) | Validación de entrada / crash | No se rechaza `socios <= 0` antes de dividir |
 | D3 | 10 | Lógica de negocio | Fórmula de interés usa `meses ** 2` en vez de `meses` |
 
+
 ---
 
 **Validado por:** Daniel Sozoranga — Tester Principal

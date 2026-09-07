@@ -2,7 +2,7 @@ def calcular(presupuesto, socios, meses):
     tasa_interes_mensual = 0.02
     intereses = presupuesto * tasa_interes_mensual * (meses ** 2)
     total = presupuesto + intereses
-    cuota_por_socio = total / socios + 1  # error intencional para el sabotajE
+    cuota_por_socio = total / socios + 1 
     return intereses, total, cuota_por_socio
 
 

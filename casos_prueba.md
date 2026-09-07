@@ -18,6 +18,20 @@ QA diseña el proceso para que los defectos ocurran menos QC lo inspecciona ya c
 
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 |---|---|---|---|---|---|---|
-| CP-01 | Socios en cero | Sistema iniciado | presupuesto=1000, socios=0, meses=6 | Mensaje de error para la correcion de campos sin la neceisda de cerrar el programa |  |  |
-| CP-02 | Meses negativos | Sistema iniciado | presupuesto=1000, socios=2, meses=-3 | Mensaje de error para la correcion de campos sin la necesidad de cerrar el programa | |  |
-| CP-03 | Socios negativos | Sistema iniciado | presupuesto=1000, socios=-2, meses=6 | Mensaje de error para la correccion de campos sin la necesidad de cerrar el programa |  |  | 
+| CP-01 | Socios en cero | Sistema iniciado | presupuesto=1000, socios=0, meses=6 | Mensaje de error para la correcion de campos sin la neceisda de cerrar el programa | ZeroDivisionError en línea 11 - el programa se detiene | Fallido |
+| CP-02 | Meses negativos | Sistema iniciado | presupuesto=1000, socios=2, meses=-3 | Mensaje de error para la correcion de campos sin la necesidad de cerrar el programa | Ejecuta sin error cuota=$590.00 | Fallido |
+| CP-03 | Socios negativos | Sistema iniciado | presupuesto=1000, socios=-2, meses=6 | Mensaje de error para la correccion de campos sin la necesidad de cerrar el programa | Ejecuta sin error cuota=$-860.00 pero esto no tiene sentido xq sale en negativos | Fallido | 
+
+## Detalles de Errores 
+
+*CP-01: Defecto del codigo en línea 11:*
+cuota_por_socio = total / socios
+El código en la linea 11 nunca valida si "socios" es igual a cero antes de dividir.
+
+*CP-02: Defecto del codigo en línea 9:*
+intereses = presupuesto * tasa_interes_mensual * (meses ** 2)
+Al elevar meses al cuadrado, un valor negativo produce el mismo resultado que uno positivo significando que el sistema acepta meses inválidos sin detectarlo.
+
+*CP-03: Defecto del codigo en línea 11:*
+cuota_por_socio = total / socios
+El código no valida que "socios" sea mayor a cero por ende acepta valores negativos y genera una cuota negativa sin sentido.

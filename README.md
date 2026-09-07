@@ -12,3 +12,11 @@ Sí, es posible. Un defecto puede permanecer inactivo en el código durante año
 
 
 Se viola el principio de Validación esto quiere decir que el sistema pasa la Verificación lo que significa que funciona bien segun lo que se solicito construir pero el problema esta en la Validación porque no resuelve lo que el cliente realmente necesitaba.
+
+## STLC vs SDLC
+
+El SDLC es conocido como el ciclo de vida del desarrollo del software, mientras que el STLC corre en paralelo lo cual valida cada etapa del SDLC desde la perspectiva de testing.
+
+## Shift-Left Testing aplicado en este proyecto
+
+En este taller aplicamos Shift-Left Testing al automatizar las pruebas con PyTest y GitHub Actions por ende en vez de probar manualmente se puede decir que antes de entregar, las pruebas corren automáticamente en cada push, detectando errores lo antes posible en el desarrollo y haciendo el proceco automatico.

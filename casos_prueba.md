@@ -13,3 +13,11 @@
 
 ## Relacion de lo aprendido
 QA diseña el proceso para que los defectos ocurran menos QC lo inspecciona ya construido Testing es la ejecución concreta dentro de QC guiada por los 7 principios ISTQB. Cuando Testing detecta un comportamiento inesperado eso es un Fallo que se rastrea hasta el Defecto en el código originado por un Error humano
+
+## Casos de Prueba
+
+| ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
+|---|---|---|---|---|---|---|
+| CP-01 | Socios en cero | Sistema iniciado | presupuesto=1000, socios=0, meses=6 | Mensaje de error para la correcion de campos sin la neceisda de cerrar el programa |  |  |
+| CP-02 | Meses negativos | Sistema iniciado | presupuesto=1000, socios=2, meses=-3 | Mensaje de error para la correcion de campos sin la necesidad de cerrar el programa | |  |
+| CP-03 | Socios negativos | Sistema iniciado | presupuesto=1000, socios=-2, meses=6 | Mensaje de error para la correccion de campos sin la necesidad de cerrar el programa |  |  | 

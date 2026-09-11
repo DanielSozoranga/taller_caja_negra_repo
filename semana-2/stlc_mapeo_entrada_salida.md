@@ -11,12 +11,12 @@
 | 5. Ejecución de las pruebas | Los 3 casos manuales, más un caso de control con datos válidos, se automatizaron en `test_presupuesto.py` y corren con `pytest`, tanto en local como en cada `push` mediante `.github/workflows/ci_pipeline.yml`. |
 | 6. Cierre del ciclo de pruebas | Se documentaron los defectos con su línea y causa raíz en `casos_prueba.md`, y se dejó evidencia reproducible mediante el check de GitHub Actions. |
 
-## Criterios de Entrada (Entry Criteria)
+## Criterios de Entrada
 
 1. **El código bajo prueba está disponible y es importable.** `presupuesto_analisis.py` expone la función `calcular(presupuesto, socios, meses)`, independiente de `input()`, lo que permite invocarla directamente desde las pruebas automatizadas sin simular teclado.
 2. **El entorno de ejecución está definido.** El workflow de GitHub Actions instala Python 3.11 y PyTest en una máquina limpia, garantizando que las pruebas corran en las mismas condiciones sin importar quién haga el `push`.
 
-## Criterios de Salida (Exit Criteria)
+## Criterios de Salida
 
 1. **Todos los casos de prueba planificados fueron ejecutados y quedaron documentados**, con su línea de código y causa raíz identificada, sin importar si el resultado fue correcto o no.
 2. **El pipeline de integración continua corre de forma automática y reproducible**: cada `push` dispara `ci_pipeline.yml`, que instala dependencias y ejecuta `pytest`, dejando un check verde o rojo visible en la pestaña Actions, sin intervención manual.

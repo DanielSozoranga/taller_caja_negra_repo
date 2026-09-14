@@ -25,3 +25,13 @@ V&V: Prueba de Sistema es Verificacion, hace la preguntad de si se construyo seg
 | Top-Down | Muestra un esqueleto funcional temprano | Los modulos criticos de bajo nivel se prueban al final | Stubs |
 | Bottom-Up | Pone prioridad a la logica critica de bajo nivel  | No se puede mostrar el sistema completo hasta el final | Drivers |
 | Sandwich | Hace una combinacion de ambas y  reduce el tiempo total | Requiere mas coordinacion ya que usa Stubs y Drivers a la vez | Ambos |
+
+## Actividad 3: Matematicas de la Particion de Equivalencia
+
+En vez de probar cada valor posible uno por uno, se agrupan en bloques donde todos se comportan igual. A esto se le llama relacion de equivalencia, y segun Jorgensen cumple 3 reglas: un valor se relaciona consigo mismo, si A se relaciona con B entonces B se relaciona con A, y si A se relaciona con B y B con C entonces A se relaciona con C. Con eso se puede probar un solo valor de cada grupo en vez de todos.
+
+Clase valida: grupo de valores que el sistema debe aceptar (ejemplo: edad de 18 a 75). Clase invalida: grupo de valores que debe rechazar (ejemplo: edad de 10 o de 90). Cada grupo necesita su propia prueba.
+
+Enmascaramiento de fallos: no se deben probar dos datos invalidos juntos en un mismo caso, porque si el sistema rechaza la prueba no se sabe cual de los dos causo el rechazo.
+
+$$ Cobertura = \frac{\text{Numero de Particiones de Equivalencia Cubiertas}}{\text{Numero Total de Particiones de Equivalencia Identificadas}} \times 100 $$

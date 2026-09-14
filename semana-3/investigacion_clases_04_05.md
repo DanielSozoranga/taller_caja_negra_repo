@@ -35,3 +35,27 @@ Clase valida: grupo de valores que el sistema debe aceptar (ejemplo: edad de 18 
 Enmascaramiento de fallos: no se deben probar dos datos invalidos juntos en un mismo caso, porque si el sistema rechaza la prueba no se sabe cual de los dos causo el rechazo.
 
 $$ Cobertura = \frac{\text{Numero de Particiones de Equivalencia Cubiertas}}{\text{Numero Total de Particiones de Equivalencia Identificadas}} \times 100 $$
+
+## Actividad 4: Ingenieria de Especificaciones (Caso Bancario)
+
+Para el caso bancario se utiliza un sistema de aprobacion de creditos, con 4 datos de entrada. Para cada uno se define que rango es valido y cuales son invalidos:
+
+| Variable | Valida | Invalida baja | Invalida alta |
+|---|---|---|---|
+| Edad | 18 a 75 | menor a 18 | mayor a 75 |
+| Ingreso neto | 500 a 10000 dolares | menor a 500 | mayor a 10000 |
+| Scoring | 300 a 850 | menor a 300 | mayor a 850 |
+| DTI | 0% a 40% | no aplica | mayor a 40% |
+
+Dado un solo caso "todo valido" se cubren las 4 clases validas a la vez. Despues, un caso por cada clase invalida (una por vez, sin mezclar, por el enmascaramiento de fallos de la Actividad 3). En total dan 8 casos los cuales no se repite ninguno:
+
+| ID | Edad | Ingreso | Scoring | DTI | Esperado |
+|---|---|---|---|---|---|
+| CP-01 | 35 | 5000 | 600 | 25% | Aprobado |
+| CP-02 | 17 | 5000 | 600 | 25% | Rechazado, edad baja |
+| CP-03 | 80 | 5000 | 600 | 25% | Rechazado, edad alta |
+| CP-04 | 35 | 400 | 600 | 25% | Rechazado, ingreso bajo |
+| CP-05 | 35 | 15000 | 600 | 25% | Rechazado, ingreso alto |
+| CP-06 | 35 | 5000 | 250 | 25% | Rechazado, scoring bajo |
+| CP-07 | 35 | 5000 | 900 | 25% | Rechazado, scoring alto |
+| CP-08 | 35 | 5000 | 600 | 50% | Rechazado, DTI alto |

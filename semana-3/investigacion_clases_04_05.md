@@ -59,3 +59,22 @@ Dado un solo caso "todo valido" se cubren las 4 clases validas a la vez. Despues
 | CP-06 | 35 | 5000 | 250 | 25% | Rechazado, scoring bajo |
 | CP-07 | 35 | 5000 | 900 | 25% | Rechazado, scoring alto |
 | CP-08 | 35 | 5000 | 600 | 50% | Rechazado, DTI alto |
+
+
+## Actividad 5: Sintesis Metacognitiva
+
+Conexion con el Principio 2 de ISTQB: la particion de equivalencia (Actividad 3) existe justamente porque probar todo es imposible. En vez de probar cada combinacion de datos posible, se agrupan en clases y se prueba una por grupo, logrando cobertura completa con pocos casos.
+
+Por que el 100% en pruebas unitarias no garantiza que la integracion no falle: las pruebas unitarias prueban cada modulo por separado, usando simulaciones (mocks/stubs) de los demas modulos. Los fallos de integracion aparecen justo en la conexion real entre modulos, algo que una prueba unitaria nunca llega a probar.
+
+## Bibliografia
+
+[1] International Software Testing Qualifications Board, "Certified Tester Foundation Level Syllabus v4.0.1," ISTQB, 2023. Disponible en: https://astqb.org/assets/documents/ISTQB_CTFL_Syllabus_v4.0.1.pdf
+
+[2] Testsigma, "Big Bang Integration Testing in Software Testing," Testsigma, 2024. Disponible en: https://testsigma.com/blog/big-bang-integration-testing/
+
+[3] BrowserStack, "Verification and Validation in Software Testing," BrowserStack, 2025. Disponible en: https://www.browserstack.com/guide/verification-and-validation-in-testing
+
+[4] Lead With Skills, "Equivalence Partitioning: ISTQB Test Design Technique Explained," Lead With Skills, 2025. Disponible en: https://www.leadwithskills.com/blogs/equivalence-partitioning-istqb-test-design-technique
+
+[5] Semaphore, "Unit Testing vs. Integration Testing," Semaphore, 2025. Disponible en: https://semaphore.io/blog/unit-testing-vs-integration-testing
